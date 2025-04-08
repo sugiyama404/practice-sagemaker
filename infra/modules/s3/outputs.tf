@@ -1,8 +1,4 @@
-output "lambda_authorizer_invoke_arn" {
-  value = aws_lambda_function.authorizer.invoke_arn
-}
-
-output "lambda_protected_endpoint_invoke_arn" {
-  value = aws_lambda_function.protected_endpoint.invoke_arn
+output "s3-ml-data-bucket" {
+  value = aws_s3_bucket.ml_data_bucket.bucket
 }
 

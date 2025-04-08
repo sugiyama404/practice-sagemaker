@@ -1,7 +1,7 @@
 # 2. SageMaker Notebook Instance
 resource "aws_sagemaker_notebook_instance" "ml_notebook" {
   name          = "ml-development-notebook-${random_id.suffix.hex}"
-  role_arn      = aws_iam_role.sagemaker_role.arn
+  role_arn      = var.sagemaker_iam_role_arn
   instance_type = "ml.t2.medium"
 
   # Optional: Lifecycle configuration script
