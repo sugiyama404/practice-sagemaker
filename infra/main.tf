@@ -20,17 +20,20 @@ module "iam" {
 
 # Lambda
 module "lambda" {
-  source                                       = "./modules/lambda"
-  app_name                                     = var.app_name
-  lambda_authorizer_iam_role_arn               = module.iam.lambda_authorizer_iam_role_arn
-  apigatewayv2_api_http_api_execution_arn      = module.apigateway.apigatewayv2_api_http_api_execution_arn
-  apigatewayv2_authorizer_lambda_authorizer_id = module.apigateway.apigatewayv2_authorizer_lambda_authorizer_id
+  source                         = "./modules/lambda"
+  app_name                       = var.app_name
+  lambda_authorizer_iam_role_arn = module.iam.lambda_authorizer_iam_role_arn
 }
 
-# API Gateway
-module "apigateway" {
-  source                               = "./modules/apigateway"
-  app_name                             = var.app_name
-  lambda_authorizer_invoke_arn         = module.lambda.lambda_authorizer_invoke_arn
-  lambda_protected_endpoint_invoke_arn = module.lambda.lambda_protected_endpoint_invoke_arn
+# sagemaker
+module "sagemaker" {
+  source                 = "./modules/sagemaker"
+  app_name               = var.app_name
+  sagemaker_iam_role_arn = module.iam.sagemaker_iam_role_arn
+  s3-ml-data-bucket      = module.s3.s3-ml-data-bucket
+}
+# S3
+module "s3" {
+  source   = "./modules/s3"
+  app_name = var.app_name
 }
