@@ -20,9 +20,9 @@ module "iam" {
 
 # Lambda
 module "lambda" {
-  source                         = "./modules/lambda"
-  app_name                       = var.app_name
-  lambda_authorizer_iam_role_arn = module.iam.lambda_authorizer_iam_role_arn
+  source              = "./modules/lambda"
+  app_name            = var.app_name
+  lambda_iam_role_arn = module.iam.lambda_iam_role_arn
 }
 
 # sagemaker

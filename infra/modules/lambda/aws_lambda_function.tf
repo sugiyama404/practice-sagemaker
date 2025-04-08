@@ -4,6 +4,6 @@ resource "aws_lambda_function" "protected_endpoint" {
   filename         = data.archive_file.func1.output_path
   handler          = "main.handler"
   source_code_hash = data.archive_file.func1.output_base64sha256
-  role             = var.lambda_authorizer_iam_role_arn
+  role             = var.lambda_iam_role_arn
   runtime          = "python3.12"
 }
