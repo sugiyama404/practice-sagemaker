@@ -4,7 +4,7 @@ resource "aws_sagemaker_model" "ml_model" {
   execution_role_arn = var.sagemaker_iam_role_arn
 
   primary_container {
-    image          = "763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-training:2.9.1-cpu-py39-ubuntu20.04-e3"
-    model_data_url = "s3://${var.s3-ml-data-bucket}/models/model.tar.gz"
+    image = "354813040037.dkr.ecr.ap-northeast-1.amazonaws.com/sagemaker-xgboost:1.7-1"
+    # model_data_url = "s3://${var.s3-ml-data-bucket}/models/model.tar.gz"
   }
 }
