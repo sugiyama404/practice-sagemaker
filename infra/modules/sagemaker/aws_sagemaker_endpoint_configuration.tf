@@ -8,4 +8,9 @@ resource "aws_sagemaker_endpoint_configuration" "ml_endpoint_config" {
     instance_type          = "ml.t2.medium"
     initial_instance_count = 1
   }
+
+  tags = {
+    Name        = "ML-Endpoint-Config"
+    Environment = "Development"
+  }
 }
