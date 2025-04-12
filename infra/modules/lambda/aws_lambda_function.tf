@@ -12,12 +12,6 @@ resource "aws_lambda_function" "protected_endpoint" {
     aws_lambda_layer_version.lambda_layer.arn
   ]
 
-  environment {
-    variables = {
-      ENDPOINT_NAME = aws_sagemaker_endpoint.ml_endpoint.name
-    }
-  }
-
   tags = {
     Name        = "ML-Client-Lambda"
     Environment = "Development"

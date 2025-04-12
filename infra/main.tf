@@ -23,7 +23,6 @@ module "lambda" {
   source              = "./modules/lambda"
   app_name            = var.app_name
   lambda_iam_role_arn = module.iam.lambda_iam_role_arn
-  ml_endpoint_name    = module.sagemaker.ml_endpoint_name
 }
 
 # sagemaker
