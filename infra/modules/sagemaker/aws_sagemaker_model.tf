@@ -4,7 +4,7 @@ resource "aws_sagemaker_model" "ml_model" {
 
   primary_container {
     image          = "354813040037.dkr.ecr.ap-northeast-1.amazonaws.com/sagemaker-xgboost:1.7-1"
-    model_data_url = "s3://${var.s3-ml-data-bucket}/output/my-training-job4/output/model.tar.gz"
+    model_data_url = "s3://${var.s3-ml-data-bucket}/output/my-training-job/output/model.tar.gz"
   }
   tags = {
     Name        = "ML-Model"
