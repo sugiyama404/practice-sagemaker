@@ -1,4 +1,3 @@
-# 4. SageMaker Endpoint Configuration
 resource "aws_sagemaker_endpoint_configuration" "ml_endpoint_config" {
   name = "ml-endpoint-config-${random_id.suffix.hex}"
 
