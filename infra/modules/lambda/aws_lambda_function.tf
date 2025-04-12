@@ -8,10 +8,6 @@ resource "aws_lambda_function" "protected_endpoint" {
   runtime          = "python3.12"
   memory_size      = 256
 
-  layers = [
-    aws_lambda_layer_version.lambda_layer.arn
-  ]
-
   tags = {
     Name        = "ML-Client-Lambda"
     Environment = "Development"
