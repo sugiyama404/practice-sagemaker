@@ -1,0 +1,5 @@
+services:
+  package-maker:
+    build: "./package-maker"
+    volumes:
+      - ./package-maker:/app
